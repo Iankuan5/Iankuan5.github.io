@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ian Kuan | Portfolio</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background: #140814;
+                color: #fdf4ff;
+                line-height: 1.6;
+            }
+
+            img {
+                max-width: 100%;
+                display: block;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            .container {
+                width: 90%;
+                max-width: 1150px;
+                margin: auto;
+            }
+
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(20, 8, 20, 0.9);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 18px 0;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+                font-weight: bold;
+                color: #ff4fd8;
+                letter-spacing: 2px;
+                animation: float 3s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-5px);
+                }
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: #f5d9f2;
+                font-weight: 600;
+                padding: 10px 14px;
+                border-radius: 12px;
+                transition:
+                    background 0.3s,
+                    color 0.3s,
+                    transform 0.3s;
+            }
+
+            .nav-links a:hover {
+                color: #ffffff;
+                background: rgba(255, 79, 216, 0.18);
+                transform: translateY(-1px);
+            }
+
+            .nav-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 26px;
+                height: 26px;
+                border-radius: 8px;
+                background: rgba(255, 79, 216, 0.12);
+                color: #ff9ce9;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 90px 0;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                text-align: center;
+                margin-bottom: 14px;
+                color: #ff4fd8;
+            }
+
+            .section-subtitle {
+                text-align: center;
+                max-width: 700px;
+                margin: 0 auto 45px;
+                color: #e8cfe4;
+            }
+
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                background: radial-gradient(circle at top left, rgba(255, 79, 216, 0.25), transparent 35%), radial-gradient(circle at bottom right, rgba(214, 51, 132, 0.3), transparent 35%), linear-gradient(135deg, #1a0b1a, #2a1028, #140814);
+                animation: backgroundShift 8s ease-in-out infinite alternate;
+            }
+
+            @keyframes backgroundShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                100% {
+                    background-position: 100% 50%;
+                }
+            }
+
+            .hero-content {
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .hero-text h1 {
+                display: inline-block;
+                font-size: 3.2rem;
+                line-height: 1.2;
+                margin-bottom: 18px;
+                overflow: hidden;
+                border-right: 3px solid #ff4fd8;
+                white-space: nowrap;
+                width: 0;
+                animation:
+                    typing 3s steps(18, end) forwards,
+                    blink-caret 0.75s step-end 8 forwards;
+            }
+
+            @keyframes typing {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 18ch;
+                }
+            }
+
+            @keyframes blink-caret {
+                from,
+                to {
+                    border-color: transparent;
+                }
+                50% {
+                    border-color: #ff4fd8;
+                }
+            }
+
+            .hero-text h1 span {
+                color: #ff4fd8;
+            }
+
+            .hero-text p {
+                color: #f0dcea;
+                max-width: 600px;
+                margin-bottom: 28px;
+                font-size: 1.05rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 13px 24px;
+                border-radius: 999px;
+                font-weight: bold;
+                transition: 0.3s ease;
+            }
+
+            .btn-primary {
+                background: linear-gradient(135deg, #ff4fd8, #d63384);
+                color: white;
+                box-shadow: 0 8px 20px rgba(255, 79, 216, 0.28);
+                animation: pulse 2s infinite;
+            }
+
+            @keyframes pulse {
+                0% {
+                    box-shadow: 0 8px 20px rgba(255, 79, 216, 0.28);
+                }
+                50% {
+                    box-shadow: 0 8px 30px rgba(255, 79, 216, 0.5);
+                }
+                100% {
+                    box-shadow: 0 8px 20px rgba(255, 79, 216, 0.28);
+                }
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+            }
+
+            .btn-secondary {
+                border: 1px solid #ff4fd8;
+                color: #ffb6ec;
+            }
+
+            .btn-secondary:hover {
+                background: rgba(255, 79, 216, 0.12);
+                transform: translateY(-3px);
+            }
+
+            .hero-card {
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 28px;
+                padding: 28px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            }
+
+            .hero-card img {
+                width: 100%;
+                height: 340px;
+                object-fit: cover;
+                border-radius: 20px;
+                margin-bottom: 20px;
+            }
+
+            .hero-card h3 {
+                color: #ff7be4;
+                margin-bottom: 8px;
+                font-size: 1.3rem;
+            }
+
+            .hero-card p {
+                color: #ecd8e8;
+            }
+
+            #about {
+                background: #1b0d1a;
+            }
+
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            .about-box {
+                background: #271325;
+                border-radius: 22px;
+                padding: 28px;
+                border: 1px solid rgba(255, 79, 216, 0.15);
+                transition: 0.3s ease;
+            }
+
+            .about-box:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 28px rgba(255, 79, 216, 0.12);
+            }
+
+            .about-box h3 {
+                margin-bottom: 14px;
+                color: #ff68dd;
+            }
+
+            .about-box p {
+                color: #ead6e7;
+            }
+
+            #skills {
+                background: #140814;
+            }
+
+            .skills-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 22px;
+            }
+
+            .skill-card {
+                flex: 1 1 280px;
+                max-width: 320px;
+                background: linear-gradient(180deg, #241023, #1a0c19);
+                border-radius: 22px;
+                padding: 26px;
+                text-align: left;
+                border-top: 3px solid #ff4fd8;
+                transition: 0.3s ease;
+            }
+
+            .skill-card:hover {
+                transform: translateY(-6px) scale(1.02);
+                box-shadow: 0 12px 28px rgba(255, 79, 216, 0.12);
+                animation: bounce 0.6s ease;
+            }
+
+            @keyframes bounce {
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(-6px) scale(1.02);
+                }
+                40% {
+                    transform: translateY(-10px) scale(1.05);
+                }
+                60% {
+                    transform: translateY(-8px) scale(1.03);
+                }
+            }
+
+            .skill-card h3 {
+                margin-bottom: 10px;
+                color: #ff78e5;
+            }
+
+            .skill-card p {
+                color: #e8d5e5;
+            }
+
+            #projects {
+                background: #1b0d1a;
+            }
+
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 360px));
+                gap: 24px;
+                justify-content: center;
+                justify-items: center;
+            }
+
+            .project-card {
+                width: 100%;
+                max-width: 360px;
+                background: #271325;
+                border-radius: 22px;
+                overflow: hidden;
+                transition: 0.3s ease;
+                border: 1px solid rgba(255, 79, 216, 0.12);
+            }
+
+            .project-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 28px rgba(255, 79, 216, 0.12);
+            }
+
+            .project-card img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .project-content {
+                padding: 22px;
+            }
+
+            .project-content h3 {
+                margin-bottom: 10px;
+                color: #ff78e5;
+            }
+
+            .project-content p {
+                color: #ead6e7;
+                margin-bottom: 14px;
+            }
+
+            .project-content a {
+                color: #ffb6ec;
+                font-weight: bold;
+            }
+
+            #contact {
+                background: #140814;
+            }
+
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 0.9fr 1.1fr;
+                gap: 24px;
+            }
+
+            .contact-info,
+            .contact-form {
+                background: #241023;
+                border-radius: 22px;
+                padding: 28px;
+                border: 1px solid rgba(255, 79, 216, 0.12);
+            }
+
+            .contact-info h3,
+            .contact-form h3 {
+                color: #ff78e5;
+                margin-bottom: 14px;
+            }
+
+            .contact-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 28px;
+                height: 28px;
+                margin-right: 10px;
+                border-radius: 50%;
+                background: rgba(255, 79, 216, 0.16);
+                color: #ffb6ec;
+                font-size: 0.95rem;
+            }
+
+            .contact-info p {
+                color: #ead6e7;
+                margin-bottom: 10px;
+            }
+
+            .form-group {
+                margin-bottom: 14px;
+            }
+
+            .contact-form label {
+                display: block;
+                margin-bottom: 6px;
+                color: #ffd1f3;
+                font-weight: bold;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                padding: 14px 16px;
+                border-radius: 14px;
+                border: 1px solid #5c3156;
+                background: #120711;
+                color: white;
+                outline: none;
+            }
+
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+                border-color: #ff4fd8;
+                box-shadow: 0 0 0 3px rgba(255, 79, 216, 0.15);
+            }
+
+            .contact-form textarea {
+                min-height: 130px;
+                resize: vertical;
+            }
+
+            .hero-text,
+            .hero-card,
+            .about-box,
+            .skill-card,
+            .project-card,
+            .contact-info,
+            .contact-form {
+                opacity: 0;
+                transform: translateY(30px);
+                transition:
+                    opacity 1.4s ease,
+                    transform 1.4s ease;
+            }
+
+            .revealed {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            footer {
+                background: #0d050d;
+                text-align: center;
+                padding: 22px 0;
+                color: #c8aeca;
+                border-top: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            @media (max-width: 992px) {
+                .hero-content,
+                .about-grid,
+                .contact-grid,
+                .skills-grid,
+                .projects-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .hero-content {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero-text {
+                    text-align: center;
+                }
+
+                .hero-text p {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .hero-buttons {
+                    justify-content: center;
+                }
+            }
+
+            @media (max-width: 768px) {
+                nav {
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .nav-links {
+                    justify-content: center;
+                    gap: 14px;
+                }
+
+                .about-grid,
+                .skills-grid,
+                .projects-grid,
+                .contact-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero-text h1 {
+                    font-size: 2.3rem;
+                }
+
+                section {
+                    padding: 75px 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo">IAN KUAN</div>
+                    <ul class="nav-links">
+                        <li>
+                            <a href="#home"><span class="nav-icon">🏠</span>Home</a>
+                        </li>
+                        <li>
+                            <a href="#about"><span class="nav-icon">ℹ️</span>About</a>
+                        </li>
+                        <li>
+                            <a href="#skills"><span class="nav-icon">💡</span>Skills</a>
+                        </li>
+                        <li>
+                            <a href="#projects"><span class="nav-icon">📁</span>Projects</a>
+                        </li>
+                        <li>
+                            <a href="#contact"><span class="nav-icon">✉️</span>Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Ian</span> 👋</h1>
+                    <p>I enjoy turning ideas into websites. I love working with HTML and CSS to create designs that are simple, clean, and responsive. I'm always learning new skills and challenging myself to improve every day.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <img src="IMG_2198.jpg" alt="Ian Kuan portfolio image" />
+                    <h3>Student Portfolio</h3>
+                    <p>This portfolio presents my background, web design skills, sample projects, and contact details in a responsive one-page layout.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">A short introduction about who I am and what I want to achieve in web development.</p>
+
+                <div class="about-grid">
+                    <div class="about-box">
+                        <h3>Who I Am</h3>
+                        <p>I am Ian Kuan, a student with an interest in web design and front-end development. I enjoy building websites that are simple, neat, and easy to use.</p>
+                    </div>
+
+                    <div class="about-box">
+                        <h3>My Goal</h3>
+                        <p>My goal is to improve my HTML and CSS skills and create websites that work well on desktop, tablet, and mobile devices while maintaining a strong visual design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <p class="section-subtitle">These are some of the main skills I use when creating portfolio and website projects.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>HTML</h3>
+                        <p>I create clear and semantic webpage structures with properly organized content.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>CSS</h3>
+                        <p>I style layouts, colors, spacing, buttons, cards, and responsive sections.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Bootstrap</h3>
+                        <p>I use Bootstrap to create clean, responsive, and professional-looking websites more efficiently.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Flexbox</h3>
+                        <p>I use Flexbox to create flexible layouts with easy alignment and spacing of elements.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Grid</h3>
+                        <p>I design complex layouts using CSS Grid for precise positioning and organization of content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">Sample work that shows my ability to design different website layouts and themes.</p>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://jhsgmytour.com/wp-content/uploads/2024/12/Malaysia.webp" alt="Website-of-interest" />
+                        <div class="project-content">
+                            <h3>Website-of-interest</h3>
+                            <p>A responsive Website-of-interest created to introduce Malaysia and its culture.</p>
+                            <a href="#">Project Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-subtitle">Feel free to contact me for discussion, feedback, or future collaboration.</p>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><span class="contact-icon">👤</span><strong>Name:</strong> Ian Kuan</p>
+                        <p><span class="contact-icon">✉️</span><strong>Email:</strong> iankuan@example.com</p>
+                        <p><span class="contact-icon">📞</span><strong>Phone:</strong> +60 12-345 6789</p>
+                        <p><span class="contact-icon">📍</span><strong>Location:</strong> Malaysia</p>
+                        <p>I am interested in improving my web design work and creating more professional projects.</p>
+                    </div>
+
+                    <form class="contact-form">
+                        <h3>Send a Message</h3>
+
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" placeholder="Write your message here" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Ian Kuan. All Rights Reserved.</p>
+        </footer>
+
+        <!-- Scroll Animations -->
+        <script>
+            const revealItems = document.querySelectorAll(".hero-text, .hero-card, .about-box, .skill-card, .project-card, .contact-info, .contact-form");
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("revealed");
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.2 },
+            );
+
+            revealItems.forEach((item) => revealObserver.observe(item));
+        </script>
+    </body>
+</html>
