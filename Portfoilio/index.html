@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Ian Kuan | Portfolio</title>
         <style>
+            /* Reset and Base Styles */
             * {
                 margin: 0;
                 padding: 0;
@@ -39,6 +40,7 @@
                 margin: auto;
             }
 
+            /* Header and Navigation */
             header {
                 position: sticky;
                 top: 0;
@@ -113,6 +115,7 @@
                 font-size: 1rem;
             }
 
+            /* Shared Section Headings */
             section {
                 padding: 90px 0;
             }
@@ -131,6 +134,7 @@
                 color: #e8cfe4;
             }
 
+            /* Hero Section */
             .hero {
                 min-height: 100vh;
                 display: flex;
@@ -199,6 +203,7 @@
                 font-size: 1.05rem;
             }
 
+            /* Buttons */
             .hero-buttons {
                 display: flex;
                 gap: 14px;
@@ -246,6 +251,7 @@
                 transform: translateY(-3px);
             }
 
+            /* Hero Card */
             .hero-card {
                 background: rgba(255, 255, 255, 0.06);
                 border: 1px solid rgba(255, 255, 255, 0.08);
@@ -272,6 +278,7 @@
                 color: #ecd8e8;
             }
 
+            /* About Section */
             #about {
                 background: #1b0d1a;
             }
@@ -304,6 +311,7 @@
                 color: #ead6e7;
             }
 
+            /* Skills Section */
             #skills {
                 background: #140814;
             }
@@ -357,6 +365,7 @@
                 color: #e8d5e5;
             }
 
+            /* Projects Section */
             #projects {
                 background: #1b0d1a;
             }
@@ -409,6 +418,7 @@
                 font-weight: bold;
             }
 
+            /* Contact Section */
             #contact {
                 background: #140814;
             }
@@ -484,6 +494,7 @@
                 resize: vertical;
             }
 
+            /* Scroll Reveal Animation */
             .hero-text,
             .hero-card,
             .about-box,
@@ -503,6 +514,7 @@
                 transform: translateY(0);
             }
 
+            /* Footer */
             footer {
                 background: #0d050d;
                 text-align: center;
@@ -511,6 +523,7 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.06);
             }
 
+            /* Responsive Layout */
             @media (max-width: 992px) {
                 .hero-content,
                 .about-grid,
@@ -567,8 +580,10 @@
         </style>
     </head>
     <body>
+        <!-- Header -->
         <header>
             <div class="container">
+                <!-- Navigation -->
                 <nav>
                     <div class="logo">IAN KUAN</div>
                     <ul class="nav-links">
@@ -592,17 +607,21 @@
             </div>
         </header>
 
+        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="container hero-content">
+                <!-- Hero Introduction -->
                 <div class="hero-text">
                     <h1>Hi, I'm <span>Ian</span> 👋</h1>
                     <p>I enjoy turning ideas into websites. I love working with HTML and CSS to create designs that are simple, clean, and responsive. I'm always learning new skills and challenging myself to improve every day.</p>
+                    <!-- Hero Buttons -->
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">View Projects</a>
                         <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     </div>
                 </div>
 
+                <!-- Hero Image Card -->
                 <div class="hero-card">
                     <img src="IMG_2198.jpg" alt="Ian Kuan portfolio image" />
                     <h3>Student Portfolio</h3>
@@ -611,17 +630,21 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <p class="section-subtitle">A short introduction about who I am and what I want to achieve in web development.</p>
 
+                <!-- About Content -->
                 <div class="about-grid">
+                    <!-- About Card 1 -->
                     <div class="about-box">
                         <h3>Who I Am</h3>
                         <p>I am Ian Kuan, a student with an interest in web design and front-end development. I enjoy building websites that are simple, neat, and easy to use.</p>
                     </div>
 
+                    <!-- About Card 2 -->
                     <div class="about-box">
                         <h3>My Goal</h3>
                         <p>My goal is to improve my HTML and CSS skills and create websites that work well on desktop, tablet, and mobile devices while maintaining a strong visual design.</p>
@@ -630,11 +653,13 @@
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills">
             <div class="container">
                 <h2 class="section-title">My Skills</h2>
                 <p class="section-subtitle">These are some of the main skills I use when creating portfolio and website projects.</p>
 
+                <!-- Skills Cards -->
                 <div class="skills-grid">
                     <div class="skill-card">
                         <h3>HTML</h3>
@@ -664,11 +689,13 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects">
             <div class="container">
                 <h2 class="section-title">My Projects</h2>
                 <p class="section-subtitle">Sample work that shows my ability to design different website layouts and themes.</p>
 
+                <!-- Project Cards -->
                 <div class="projects-grid">
                     <div class="project-card">
                         <img src="https://jhsgmytour.com/wp-content/uploads/2024/12/Malaysia.webp" alt="Website-of-interest" />
@@ -682,12 +709,15 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact">
             <div class="container">
                 <h2 class="section-title">Contact Me</h2>
                 <p class="section-subtitle">Feel free to contact me for discussion, feedback, or future collaboration.</p>
 
+                <!-- Contact Content -->
                 <div class="contact-grid">
+                    <!-- Contact Details -->
                     <div class="contact-info">
                         <h3>Contact Information</h3>
                         <p><span class="contact-icon">👤</span><strong>Name:</strong> Ian Kuan</p>
@@ -697,30 +727,36 @@
                         <p>I am interested in improving my web design work and creating more professional projects.</p>
                     </div>
 
+                    <!-- Contact Form -->
                     <form class="contact-form">
                         <h3>Send a Message</h3>
 
+                        <!-- Name Field -->
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" placeholder="Enter your name" required />
                         </div>
 
+                        <!-- Email Field -->
                         <div class="form-group">
                             <label for="email">Your Email</label>
                             <input type="email" id="email" placeholder="Enter your email" required />
                         </div>
 
+                        <!-- Message Field -->
                         <div class="form-group">
                             <label for="message">Your Message</label>
                             <textarea id="message" placeholder="Write your message here" required></textarea>
                         </div>
 
+                        <!-- Submit Button -->
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
         </section>
 
+        <!-- Footer -->
         <footer>
             <p>&copy; 2026 Ian Kuan. All Rights Reserved.</p>
         </footer>
